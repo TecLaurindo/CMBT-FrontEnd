@@ -48,3 +48,23 @@ async function darBaixaEstoque(id) {
         // Erro já exibido pelo config.js
     }
 }
+
+async function cadastrarItemEstoque(event) {
+    event.preventDefault();
+
+    const novoItem = {
+        descricao: document.getElementById('item-descricao').value,
+        tamanho: document.getElementById('item-tamanho').value,
+        quantidadeDisponivel: parseInt(document.getElementById('item-quantidade').value),
+        valorUnitario: parseFloat(document.getElementById('item-valor').value)
+    };
+
+    try {
+        await apiRequest('/estoque', 'POST', novoItem);
+        alert('Item cadastrado com sucesso!');
+        document.getElementById('form-cadastrar-item').reset();
+        carregarEstoque();
+    } catch (error) {
+        // Trato no config.js
+    }
+}
