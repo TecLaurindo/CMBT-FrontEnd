@@ -45,7 +45,7 @@ async function darBaixaEstoque(id) {
         alert('Baixa realizada com sucesso!');
         carregarEstoque();
     } catch (error) {
-        // Erro já exibido pelo config.js
+        // Erro exibido pelo config.js
     }
 }
 
@@ -65,6 +65,6 @@ async function cadastrarItemEstoque(event) {
         document.getElementById('form-cadastrar-item').reset();
         carregarEstoque();
     } catch (error) {
-        // Trato no config.js
+        // Erro exibido pelo config.js
     }
 }

@@ -1,18 +1,20 @@
-function alternarAba(aba) {
-    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+function alternarAba(nomeAba) {
+    // Esconde todas as seções
+    const conteudos = document.querySelectorAll('.tab-content');
+    conteudos.forEach(c => c.classList.remove('active'));
 
-    if (aba === 'estoque') {
-        document.getElementById('aba-estoque').classList.add('active');
-        document.getElementById('btn-tab-estoque').classList.add('active');
-        carregarEstoque();
-    } else if (aba === 'mensalidades') {
-        document.getElementById('aba-mensalidades').classList.add('active');
-        document.getElementById('btn-tab-mensalidades').classList.add('active');
-    }
+    // Desativa todos os botões da nav
+    const botoes = document.querySelectorAll('.tab-btn');
+    botoes.forEach(b => b.classList.remove('active'));
+
+    // Ativa a aba e o botão selecionado
+    const secaoAlvo = document.getElementById(`aba-${nomeAba}`);
+    const botaoAlvo = document.getElementById(`btn-tab-${nomeAba}`);
+
+    if (secaoAlvo) secaoAlvo.classList.add('active');
+    if (botaoAlvo) botaoAlvo.classList.add('active');
+
+    // Carrega os dados específicos ao trocar de aba
+    if (nomeAba === 'atletas') carregarAtletas();
+    if (nomeAba === 'estoque') carregarEstoque();
 }
-
-// Inicializa a aba padrão no carregamento da página
-document.addEventListener('DOMContentLoaded', () => {
-    carregarEstoque();
-});

@@ -14,14 +14,55 @@
             <span>Painel Administrativo</span>
         </div>
         <nav>
-            <button id="btn-tab-estoque" class="tab-btn active" onclick="alternarAba('estoque')">📦 Estoque</button>
+            <button id="btn-tab-atletas" class="tab-btn active" onclick="alternarAba('atletas')">🏃 Atletas</button>
+            <button id="btn-tab-estoque" class="tab-btn" onclick="alternarAba('estoque')">📦 Estoque</button>
             <button id="btn-tab-mensalidades" class="tab-btn" onclick="alternarAba('mensalidades')">💵 Mensalidades</button>
         </nav>
     </header>
 
     <main class="container">
+
+        <!-- SEÇÃO ATLETAS -->
+        <section id="aba-atletas" class="tab-content active">
+            <div class="section-header">
+                <h2>Gestão de Atletas</h2>
+                <button class="btn-primary" onclick="carregarAtletas()">🔄 Atualizar Lista</button>
+            </div>
+
+            <!-- FORMULÁRIO DE CADASTRO DE ATLETA -->
+            <form id="form-cadastrar-atleta" class="form-card" onsubmit="cadastrarAtleta(event)">
+                <h3>➕ Cadastrar Novo Atleta</h3>
+                <div class="form-group">
+                    <input type="text" id="atleta-nome" placeholder="Nome Completo" required>
+                    <input type="text" id="atleta-cpf" placeholder="CPF (Somente números)">
+                    <input type="date" id="atleta-nascimento" title="Data de Nascimento">
+                    <input type="text" id="atleta-categoria" placeholder="Categoria (Ex: Sub-17, Adulto)" required>
+                    <input type="text" id="atleta-posicao" placeholder="Posição (Ex: Armador, Pivô)">
+                    <button type="submit" class="btn-primary">Salvar Atleta</button>
+                </div>
+            </form>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Categoria</th>
+                            <th>Posição</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-atletas-body">
+                        <tr><td colspan="6" class="text-center">Carregando atletas...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
         <!-- SEÇÃO ESTOQUE -->
-        <section id="aba-estoque" class="tab-content active">
+        <section id="aba-estoque" class="tab-content">
             <div class="section-header">
                 <h2>Controle de Estoque</h2>
                 <button class="btn-primary" onclick="carregarEstoque()">🔄 Atualizar Lista</button>
@@ -98,6 +139,7 @@
     </main>
 
     <script src="js/config.js"></script>
+    <script src="js/atletas.js"></script>
     <script src="js/estoque.js"></script>
     <script src="js/mensalidades.js"></script>
     <script src="js/main.js"></script>
