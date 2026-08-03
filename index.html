@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caimbé Basketball - Painel de Controle</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <h1>🏀 Caimbé Basketball</h1>
+            <span>Painel Administrativo</span>
+        </div>
+        <nav>
+            <button id="btn-tab-estoque" class="tab-btn active" onclick="alternarAba('estoque')">📦 Estoque</button>
+            <button id="btn-tab-mensalidades" class="tab-btn" onclick="alternarAba('mensalidades')">💵 Mensalidades</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- SEÇÃO ESTOQUE -->
+        <section id="aba-estoque" class="tab-content active">
+            <div class="section-header">
+                <h2>Controle de Estoque</h2>
+                <button class="btn-primary" onclick="carregarEstoque()">🔄 Atualizar Lista</button>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descrição</th>
+                            <th>Tamanho</th>
+                            <th>Qtd. Disponível</th>
+                            <th>Valor Unitário</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-estoque-body">
+                        <tr><td colspan="6" class="text-center">Carregando dados...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SEÇÃO MENSALIDADES -->
+        <section id="aba-mensalidades" class="tab-content">
+            <div class="section-header">
+                <h2>Consulta de Mensalidades por Atleta</h2>
+            </div>
+
+            <div class="search-box">
+                <input type="number" id="input-atleta-id" placeholder="Digite o ID do Atleta (Ex: 1)">
+                <button class="btn-primary" onclick="buscarMensalidadesPorAtleta()">Buscar Histórico</button>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Mês Referência</th>
+                            <th>Valor</th>
+                            <th>Status</th>
+                            <th>Data Pagamento</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-mensalidades-body">
+                        <tr><td colspan="6" class="text-center">Informe o ID do atleta para listar o histórico.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- SCRIPTS MÓDULOS -->
+    <script src="js/config.js"></script>
+    <script src="js/estoque.js"></script>
+    <script src="js/mensalidades.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
