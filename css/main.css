@@ -165,3 +165,34 @@ th {
 .badge-pending { background: var(--danger-color); color: white; }
 
 .text-center { text-align: center; }
+
+/* Estilos do Formulário */
+.form-card {
+    background-color: var(--dark-bg);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color);
+}
+
+.form-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--primary-color);
+}
+
+.form-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.form-group input, .form-group select {
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-color);
+    flex: 1;
+    min-width: 140px;
+}
