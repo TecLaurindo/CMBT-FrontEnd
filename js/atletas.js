@@ -35,10 +35,12 @@ async function carregarAtletas() {
 async function cadastrarAtleta(event) {
     event.preventDefault();
 
+    const dataNascimentoInput = document.getElementById('atleta-nascimento').value;
+
     const novoAtleta = {
         nome: document.getElementById('atleta-nome').value,
         cpf: document.getElementById('atleta-cpf').value,
-        dataNascimento: document.getElementById('atleta-nascimento').value || null,
+        dataNascimento: dataNascimentoInput ? dataNascimentoInput : null,
         categoria: document.getElementById('atleta-categoria').value,
         posicao: document.getElementById('atleta-posicao').value
     };
