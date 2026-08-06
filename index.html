@@ -15,6 +15,7 @@
         </div>
         <nav>
             <button id="btn-tab-atletas" class="tab-btn active" onclick="alternarAba('atletas')">🏃 Atletas</button>
+            <button id="btn-tab-calendario" class="tab-btn" onclick="alternarAba('calendario')">📅 Calendário</button>
             <button id="btn-tab-estoque" class="tab-btn" onclick="alternarAba('estoque')">📦 Estoque</button>
             <button id="btn-tab-mensalidades" class="tab-btn" onclick="alternarAba('mensalidades')">💵 Mensalidades</button>
         </nav>
@@ -55,6 +56,51 @@
                     </thead>
                     <tbody id="tabela-atletas-body">
                         <tr><td colspan="6" class="text-center">Carregando atletas...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CALENDÁRIO (TREINOS E JOGOS) -->
+        <section id="aba-calendario" class="tab-content">
+            <div class="section-header">
+                <h2>Agenda de Treinos e Jogos</h2>
+                <button class="btn-primary" onclick="carregarEventos()">🔄 Atualizar Agenda</button>
+            </div>
+
+            <form id="form-cadastrar-evento" class="form-card" onsubmit="cadastrarEvento(event)">
+                <h3>➕ Agendar Treino ou Jogo</h3>
+                <div class="form-group">
+                    <input type="text" id="evento-titulo" placeholder="Título (Ex: Treino Tático Sub-17)" required>
+                    <select id="evento-tipo" required>
+                        <option value="">Tipo</option>
+                        <option value="TREINO">Treino</option>
+                        <option value="JOGO">Jogo</option>
+                        <option value="AMISTOSO">Amistoso</option>
+                        <option value="REUNIAO">Reunião</option>
+                    </select>
+                    <input type="datetime-local" id="evento-inicio" required title="Data e Hora de Início">
+                    <input type="text" id="evento-local" placeholder="Local (Ex: Ginásio Totozão)" required>
+                    <input type="text" id="evento-categoria" placeholder="Categoria (Ex: Sub-17, Adulto)" required>
+                    <button type="submit" class="btn-primary">Agendar Evento</button>
+                </div>
+            </form>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tipo</th>
+                            <th>Título</th>
+                            <th>Data/Hora</th>
+                            <th>Local</th>
+                            <th>Categoria</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-eventos-body">
+                        <tr><td colspan="7" class="text-center">Carregando eventos...</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -111,7 +157,6 @@
                 <h2>Gestão de Mensalidades</h2>
             </div>
 
-            <!-- FORMULÁRIO DE GERAÇÃO DE MENSALIDADE -->
             <form id="form-gerar-mensalidade" class="form-card" onsubmit="gerarMensalidade(event)">
                 <h3>➕ Gerar Nova Cobrança</h3>
                 <div class="form-group">
@@ -149,6 +194,7 @@
 
     <script src="js/config.js"></script>
     <script src="js/atletas.js"></script>
+    <script src="js/calendario.js"></script>
     <script src="js/estoque.js"></script>
     <script src="js/mensalidades.js"></script>
     <script src="js/main.js"></script>
