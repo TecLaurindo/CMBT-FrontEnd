@@ -29,7 +29,6 @@
                 <button class="btn-primary" onclick="carregarAtletas()">🔄 Atualizar Lista</button>
             </div>
 
-            <!-- FORMULÁRIO DE CADASTRO DE ATLETA -->
             <form id="form-cadastrar-atleta" class="form-card" onsubmit="cadastrarAtleta(event)">
                 <h3>➕ Cadastrar Novo Atleta</h3>
                 <div class="form-group">
@@ -68,7 +67,6 @@
                 <button class="btn-primary" onclick="carregarEstoque()">🔄 Atualizar Lista</button>
             </div>
 
-            <!-- FORMULÁRIO DE CADASTRO DE ITEM -->
             <form id="form-cadastrar-item" class="form-card" onsubmit="cadastrarItemEstoque(event)">
                 <h3>➕ Novo Item no Estoque</h3>
                 <div class="form-group">
@@ -110,11 +108,22 @@
         <!-- SEÇÃO MENSALIDADES -->
         <section id="aba-mensalidades" class="tab-content">
             <div class="section-header">
-                <h2>Consulta de Mensalidades por Atleta</h2>
+                <h2>Gestão de Mensalidades</h2>
             </div>
 
+            <!-- FORMULÁRIO DE GERAÇÃO DE MENSALIDADE -->
+            <form id="form-gerar-mensalidade" class="form-card" onsubmit="gerarMensalidade(event)">
+                <h3>➕ Gerar Nova Cobrança</h3>
+                <div class="form-group">
+                    <input type="number" id="mensalidade-atleta-id" placeholder="ID do Atleta (Ex: 1)" required>
+                    <input type="text" id="mensalidade-mes-ref" placeholder="Mês Referência (Ex: AGOSTO/2026)" required>
+                    <input type="number" step="0.01" id="mensalidade-valor" placeholder="Valor (R$)" required>
+                    <button type="submit" class="btn-primary">Gerar Mensalidade</button>
+                </div>
+            </form>
+
             <div class="search-box">
-                <input type="number" id="input-atleta-id" placeholder="Digite o ID do Atleta (Ex: 1)">
+                <input type="number" id="input-atleta-id" placeholder="Digite o ID do Atleta para filtrar">
                 <button class="btn-primary" onclick="buscarMensalidadesPorAtleta()">Buscar Histórico</button>
             </div>
 
@@ -122,7 +131,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>ID Cobrança</th>
                             <th>Mês Referência</th>
                             <th>Valor</th>
                             <th>Status</th>
