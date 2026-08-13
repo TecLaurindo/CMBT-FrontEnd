@@ -1,35 +1,47 @@
 const API_BASE_URL = 'http://localhost:8080/api';
 
-async function apiRequest(endpoint, method = 'GET', body = null) {
-    const config = {
-        method,
-        headers: {
-            'Content-Type': 'application/json'
-        }
+async function apiRequest(endpoint, method = 'GET', data = null) {
+    const headers = {
+        'Content-Type': 'application/json'
     };
 
-    if (body) {
-        config.body = JSON.stringify(body);
+    // Adiciona o Token JWT no cabeçalho se existir
+    const token = localStorage.getItem('caimbe_token');
+    if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    const options = {
+        method,
+        headers
+    };
+
+    if (data && (method === 'POST' || method === 'PUT')) {
+        options.body = JSON.stringify(data);
     }
 
     try {
-        const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
+        const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
+        
+        if (response.status === 401 || response.status === 403) {
+            if (!endpoint.includes('/auth/login')) {
+                realizarLogout();
+            }
+        }
+
+        if (response.status === 204) {
+            return null;
+        }
+
+        const json = await response.json().catch(() => null);
 
         if (!response.ok) {
-            const errorText = await response.text();
-            throw new Error(errorText || `Erro HTTP status: ${response.status}`);
+            throw new Error((json && json.message) || `Erro HTTP: ${response.status}`);
         }
 
-        // Caso a resposta tenha conteúdo, converte para JSON
-        const contentType = response.headers.get("content-type");
-        if (contentType && contentType.includes("application/json")) {
-            return await response.json();
-        }
-        
-        return null;
+        return json;
     } catch (error) {
-        console.error('Falha na API:', error);
-        alert(`Atenção: ${error.message}`);
+        console.error('Erro na requisição API:', error);
         throw error;
     }
 }
