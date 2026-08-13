@@ -8,20 +8,34 @@
 </head>
 <body>
 
+    <!-- MODAL / TELA DE LOGIN -->
+    <div id="modal-login" class="login-overlay">
+        <div class="login-card">
+            <h2>🏀 Caimbé Basketball</h2>
+            <p>Acesso Restrito ao Painel Administrativo</p>
+            <form id="form-login" onsubmit="realizarLogin(event)">
+                <input type="email" id="login-email" placeholder="Seu e-mail" required>
+                <input type="password" id="login-senha" placeholder="Sua senha" required>
+                <button type="submit" class="btn-primary" style="width: 100%;">Entrar no Sistema</button>
+            </form>
+        </div>
+    </div>
+
     <header>
         <div class="logo-area">
             <h1>🏀 Caimbé Basketball</h1>
             <span>Painel Administrativo</span>
         </div>
-        <nav>
+        <nav id="nav-principal" style="display: none;">
             <button id="btn-tab-atletas" class="tab-btn active" onclick="alternarAba('atletas')">🏃 Atletas</button>
             <button id="btn-tab-calendario" class="tab-btn" onclick="alternarAba('calendario')">📅 Calendário</button>
             <button id="btn-tab-estoque" class="tab-btn" onclick="alternarAba('estoque')">📦 Estoque</button>
             <button id="btn-tab-mensalidades" class="tab-btn" onclick="alternarAba('mensalidades')">💵 Mensalidades</button>
+            <button class="btn-danger" style="margin-left: 20px;" onclick="realizarLogout()">🚪 Sair</button>
         </nav>
     </header>
 
-    <main class="container">
+    <main class="container" id="conteudo-principal" style="display: none;">
 
         <!-- SEÇÃO ATLETAS -->
         <section id="aba-atletas" class="tab-content active">
@@ -61,7 +75,7 @@
             </div>
         </section>
 
-        <!-- SEÇÃO CALENDÁRIO (TREINOS E JOGOS) -->
+        <!-- SEÇÃO CALENDÁRIO -->
         <section id="aba-calendario" class="tab-content">
             <div class="section-header">
                 <h2>Agenda de Treinos e Jogos</h2>
@@ -193,6 +207,7 @@
     </main>
 
     <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/atletas.js"></script>
     <script src="js/calendario.js"></script>
     <script src="js/estoque.js"></script>
