@@ -195,3 +195,50 @@ th {
 .badge-pending { background: var(--danger-color); color: white; }
 
 .text-center { text-align: center; }
+
+/* MODAL DE LOGIN */
+.login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.login-card {
+    background-color: var(--card-bg, #1e293b);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid #334155;
+}
+
+.login-card h2 {
+    color: #ff6b00;
+    margin-bottom: 0.5rem;
+}
+
+.login-card p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 1rem;
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    color: #fff;
+    box-sizing: border-box;
+}
