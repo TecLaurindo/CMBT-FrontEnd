@@ -289,3 +289,55 @@ th {
 .stat-card.red .stat-info p {
     color: #ef4444;
 }
+
+/* ESTILIZAÇÃO DO FILTRO DE MENSALIDADES */
+.filtro-container {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.input-filtro {
+    background-color: #1e293b;
+    color: #f8fafc;
+    border: 1px solid #334155;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.input-filtro:focus {
+    border-color: #d35400;
+}
+
+.btn-filtro {
+    background-color: #d35400;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-filtro:hover {
+    background-color: #e67e22;
+}
+
+.btn-secundario-filtro {
+    background-color: #334155;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-secundario-filtro:hover {
+    background-color: #475569;
+}
