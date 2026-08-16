@@ -12,6 +12,10 @@ function verificarSessao() {
         modalLogin.style.display = 'none';
         navPrincipal.style.display = 'flex';
         conteudoPrincipal.style.display = 'block';
+
+        if (typeof carregarDashboard === 'function') {
+            carregarDashboard();
+        }
     } else {
         modalLogin.style.display = 'flex';
         navPrincipal.style.display = 'none';
