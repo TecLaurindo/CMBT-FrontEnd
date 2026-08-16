@@ -37,6 +37,45 @@
 
     <main class="container" id="conteudo-principal" style="display: none;">
 
+        <!-- DASHBOARD / CARDS DE ESTATÍSTICAS -->
+        <section class="dashboard-grid">
+            <div class="stat-card">
+                <span class="stat-icon">🏃</span>
+                <div class="stat-info">
+                    <h4>Atletas Cadastrados</h4>
+                    <p id="stat-atletas">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">📅</span>
+                <div class="stat-info">
+                    <h4>Eventos Agendados</h4>
+                    <p id="stat-eventos">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">📦</span>
+                <div class="stat-info">
+                    <h4>Itens em Estoque</h4>
+                    <p id="stat-estoque">0</p>
+                </div>
+            </div>
+            <div class="stat-card green">
+                <span class="stat-icon">💵</span>
+                <div class="stat-info">
+                    <h4>Total Recebido</h4>
+                    <p id="stat-pago">R$ 0,00</p>
+                </div>
+            </div>
+            <div class="stat-card red">
+                <span class="stat-icon">⏳</span>
+                <div class="stat-info">
+                    <h4>Pendente</h4>
+                    <p id="stat-pendente">R$ 0,00</p>
+                </div>
+            </div>
+        </section>
+
         <!-- SEÇÃO ATLETAS -->
         <section id="aba-atletas" class="tab-content active">
             <div class="section-header">
@@ -74,6 +113,7 @@
                 </table>
             </div>
         </section>
+        
 
         <!-- SEÇÃO CALENDÁRIO -->
         <section id="aba-calendario" class="tab-content">
@@ -213,5 +253,6 @@
     <script src="js/estoque.js"></script>
     <script src="js/mensalidades.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>

@@ -242,3 +242,50 @@ th {
     color: #fff;
     box-sizing: border-box;
 }
+
+/* GRID DE CARDS DO DASHBOARD */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    background: #0f172a;
+    padding: 0.6rem;
+    border-radius: 8px;
+}
+
+.stat-info h4 {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin: 0 0 0.3rem 0;
+}
+
+.stat-info p {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #f8fafc;
+    margin: 0;
+}
+
+.stat-card.green .stat-info p {
+    color: #22c55e;
+}
+
+.stat-card.red .stat-info p {
+    color: #ef4444;
+}
